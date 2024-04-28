@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrypText</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CrypText - Secure Communication System</h1>
+        <form action="/encode" method="post" enctype="multipart/form-data">
+            <label for="image">Select Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Encode</button>
+        </form>
+        <form action="/decode" method="post" enctype="multipart/form-data">
+            <label for="encoded_image">Select Encoded Image:</label>
+            <input type="file" id="encoded_image" name="encoded_image" accept="image/png" required>
+            <button type="submit">Decode</button>
+        </form>
+        {% if decoded_message %}
+        <div class="decoded-message">
+            <h2>Decoded Message:</h2>
+            <p>{{ decoded_message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
